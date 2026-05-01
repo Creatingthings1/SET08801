@@ -1,0 +1,50 @@
+<!DOCTYPE html> <!--declares this is a html5 document-->
+<html lang="en"> <!--ROOT ELEMENT OF THE PAGEhtml documentation encourages files language to be declared as it can help with engine searches and is inhertied by all the elements in the document, considered good practice -->
+<head>
+  <meta charset="UTF-8"> <!-- this element is declared because, if in the future this test is converted into other languages or special symbols are used within this application the user regardless of location/language is able to see it, this isnt neccessary for this application at this stage but is good to know info in the realm of HTML-->
+  <title>DISC Model Personality Tester</title> <!--Page title declared in the tab, is good for search engines as ultimately all web apps end up on the web, also kind of helps with adveritising/marketing and looks professional as this name displays to the user in the tab, if they have multiple sites opened which provide the same function maybe this application can stand out-->
+  <link rel="stylesheet" href="style.css"> <!--linking to the css file where all the styling for this document is stored-->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> <!--Chose this font from google, its free-use and looks engaging and proffesional, the font is not boring looking-->
+</head>
+<body>
+
+    <div class="page"> <!--Main container of all elments on the entire page, this will allow the layout to remain consistent through out all html documents in this application -->
+
+  <main class="quizContainer"> <!--the main element defines the main contents of the HTML document, class is in reference to the css styling which will be applied, class is used again so i can keep all css the same throughout the application and skip any errors which may occur if done individually-->
+
+    <h1>DISC Personality Test</h1> <!--displays throughout the length of the quiz, with the H1 element-->
+
+    <p id="progressText">Question 1 of 20</p> <!--text for the progress bar which JAVASCRIPT will update "progressText.textContent"-->
+
+    <div class="progressBar"> <!--Outer bar of the bar to be filled to show user there progress-->
+      <div id="progressFill"></div> <!--FILLING of the bar which shows visually how far the user has progressed "progressFill.style.width" JS-->
+    </div>
+    <section class="questionCard"> <!--Container for the questions-->
+
+      <h2 id="questionText"></h2> <!--"questionText.textContent = quiz[currentQuestionIndex].question" JS inserts the text which is running through the array of questions in "questionlogic.js"  -->
+
+      <div id="answerButtons" class="answerButtons"> <!--JS will add the buttons corresponding to the answers provided in questionlogic. js "const button = document.createElement("button");
+answerButtons.appendChild(button)"-->
+        <!-- Answers appear here using JS -->
+      </div>
+<div class="navButtons"> <!--class for go forward and back buttons-->
+    <button id="backBtn">Previous Question</button> <!--ID given js event listner is looking for clicks-->
+      <button id="nextBtn" disabled>Next Question</button> <!--ID given js event listner is looking for clicks, starts as DISABLED once user chooses answer then it becomes clickable-->
+  
+</div>
+    </section>
+
+  </main>
+
+  <audio id="buttonSound" src="audio/btnclick.wav" preload="auto"></audio> <!--AUDIO FILE which plays sound when user clicks either back or next button "buttonSound.play();"-->
+  <script src="questionLogic.js"></script> <!--Loads JS quiz logic on to document first as script.js reads off this file, so place js files in order you want them to be read-->
+  <script src="script.js"></script> <!--Loads quiz logic displays questions, handles clicks, calculates result & redirects to result.html page, script.js is reading off questionlogic.js so it comes after question.logic-->
+
+  <footer class="footer"> <!--footer used to give applcation a proffesional look-->
+  <hr> <!--Line to seperate from the main, so users can see where the document ends-->
+  <p>DISC Model Personality Tester 2026 </p>
+</footer>  
+</div>
+
+</body>
+</html>
